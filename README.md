@@ -14,6 +14,11 @@ The clinical impacts of AAT ultimately lead to high mortality if left untreated.
 
 This project aims to investigate the role of sylvatic transmission in AAT affecting livestock by quantifying wildlife-to-livestock transmission in the Shimba Hills National Reserve. By using flies collected within and outside the park as a proxy, Whole-genome sequence data from 34 Trypanosoma congolense was isolated from host blood (livestock) and 81 from tsetse flies to provide insights into how wildlife contributes to the spread of trypanosomiasis to livestock, thereby informing better control strategies to enhance livestock productivity and food security in affected areas
 
+#### LIFE CYCLE OF TRYPANOSOMA
+![image](https://github.com/user-attachments/assets/f2a01d4f-5d86-4954-baf5-2f9a55ef655c)
+
+
+
 ## OBJECTIVES ##
 ### Main Objective ###
 
@@ -29,3 +34,12 @@ This project aims to investigate the role of sylvatic transmission in AAT affect
 - Understanding of the role of wildlife in the transmission of AAT.
 - Inform better control strategies to reduce AAT in livestock.
 - Understand the genetic relationships between trypanosome parasites in wildlife and livestock.
+## WORKFLOW
+![image](https://github.com/user-attachments/assets/5c6a5346-616e-498f-8342-d3afeb2bc60b)
+
+## WORK PLAN
+
+
+
+
+
