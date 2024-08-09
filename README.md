@@ -35,9 +35,28 @@ This project aims to investigate the role of sylvatic transmission in AAT affect
 - Inform better control strategies to reduce AAT in livestock.
 - Understand the genetic relationships between trypanosome parasites in wildlife and livestock.
 ## WORKFLOW
-![image](https://github.com/user-attachments/assets/5c6a5346-616e-498f-8342-d3afeb2bc60b)
+### PHASE 1
+![image](https://github.com/user-attachments/assets/8a807f58-67ea-48d7-a38d-71808b18122f)
+
+### PHASE 2
+![image](https://github.com/user-attachments/assets/8e366f1e-cf91-4420-9ab1-235d72a9577a)
+
+### PHASE 3
+![image](https://github.com/user-attachments/assets/7dadf27d-5966-4e3c-b746-d1cbd9784998)
+
 
 ## WORK PLAN
+PHASE 1 - August
+
+PHASE 2 - September
+
+PHASE 3 - October
+
+Documentation- November
+
+
+
+
 
 
 
