@@ -34,25 +34,49 @@ This project aims to investigate the role of sylvatic transmission in AAT affect
 - Understanding of the role of wildlife in the transmission of AAT.
 - Inform better control strategies to reduce AAT in livestock.
 - Understand the genetic relationships between trypanosome parasites in wildlife and livestock.
-## WORKFLOW
-### PHASE 1
-![image](https://github.com/user-attachments/assets/8a807f58-67ea-48d7-a38d-71808b18122f)
+  
+### WORKFLOW
+#### PHASE 1 
 
-### PHASE 2
-![image](https://github.com/user-attachments/assets/8e366f1e-cf91-4420-9ab1-235d72a9577a)
+<img src="https://github.com/user-attachments/assets/ff7d8f43-9f2f-4328-9024-a12e53a3125c" alt="Image" width="500"/>
 
-### PHASE 3
-![image](https://github.com/user-attachments/assets/7dadf27d-5966-4e3c-b746-d1cbd9784998)
+#### PHASE 2
 
+<img src="https://github.com/user-attachments/assets/8e366f1e-cf91-4420-9ab1-235d72a9577a"  alt="Image" width="1200"/>
 
-## WORK PLAN
-PHASE 1 - August
+#### PHASE 3
 
-PHASE 2 - September
+<img src="https://github.com/user-attachments/assets/7dadf27d-5966-4e3c-b746-d1cbd9784998"  alt="Image" width="500"/>
 
-PHASE 3 - October
+### WORK PLAN
+#### PHASE 1 - August
+19th to 24th - Quality control(fastQC), filtering host and vector reads
 
-Documentation- November
+26th to 30th - Assessing results, Assembly
+
+#### PHASE 2 - September
+2nd to 6th -Genome mapping and assembly assessment
+
+9th to 13th - Gap filling, assembly assessment
+
+16th to 20th- Results visualization
+
+23rd to 27th - Documentation of the two phases
+
+#### PHASE 3 - October
+30th to 4th - Read allignment
+
+7th to 11th - Variant calling
+
+14th to 18th - Finish VC and start Phylogenetics
+
+21st to 25th - Phylogenetics
+
+28th to 1st Nov - Documentation
+
+November 4th to 15th- *Automating the workflow*
+
+Final Documentation- November
 
 
 
