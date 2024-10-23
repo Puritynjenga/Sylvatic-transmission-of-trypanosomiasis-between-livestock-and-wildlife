@@ -1,8 +1,8 @@
-#PBS -l select=10:ncpus=24:mpiprocs=24:mem=120gb
+#PBS -l select=2:ncpus=24:mpiprocs=24:mem=120gb
 #PBS -q normal
-#PBS -l walltime=10:00:00
-#PBS -o /mnt/lustre/users/pnjenga/trypanosome/results/trim.out
-#PBS -e /mnt/lustre/users/pnjenga/trypanosome/results/trim.err
+#PBS -l walltime=48:00:00
+#PBS -o /mnt/lustre/users/pnjenga/trypanosome/results/mapping_stats.out
+#PBS -e /mnt/lustre/users/pnjenga/trypanosome/results/mapping_stats.err
 #PBS -m abe
 #PBS -M puritynjenga895@gmail.com
 
@@ -16,12 +16,12 @@ module load samtools/1.9
 # Define paths
 
 basedir="/mnt/lustre/users/pnjenga/trypanosome"
-input="${basedir}"/results/trimmed_reads
+input="${basedir}"/results/mapped_reads
 output_dir="${basedir}"/results/mapped_reads
 ref_genome="${basedir}"/ref_genomes/JXJN01.fasta
-THREADS=8 
+threads=48 
 
-mkdir -p $output_dir
+# mkdir -p $output_dir
 
 ##list of the sanples
 list1=("${input}/Sample_100-F308" "${input}/Sample_101-F309" "${input}/Sample_102-F310" "${input}/Sample_103-F311" "${input}/Sample_104-F313" "${input}/Sample_105-F315" "${input}/Sample_106-F316" "${input}/Sample_107-F317" "${input}/Sample_108-F318" "${input}/Sample_109-F319")
@@ -37,43 +37,41 @@ list10=("${input}/Sample_80-F277" "${input}/Sample_81-F279" "${input}/Sample_82-
 list11=("${input}/Sample_90-F292" "${input}/Sample_91-F293" "${input}/Sample_92-F294" "${input}/Sample_93-F295" "${input}/Sample_94-F296" "${input}/Sample_95-F299" "${input}/Sample_96-F300" "${input}/Sample_97-F303" "${input}/Sample_98-F305" "${input}/Sample_99-F306")
 list12=("${input}/Sample_8-B65" "${input}/Sample_9-B79" "${input}/Sample_10-B89")
 
-# bwa index "$REF_GENOME"
 
-# Raw reads
-forward_read="${input}"/Sample_*/*_R1_val_1.fq.gz # Path to the forward read file
-reverse_read="${input}"/Sample_*/*_R2_val_2.fq.gz # Path to the reverse read file
 
 
 # Create mapping_stats directory 
-echo "Creating mapping_stats directory..."
-touch "${output_dir}/mapping_stats.err" "${output_dir}/mapping_stats.out"
+# echo "Creating mapping_stats directory..."
+# touch "${basedir}/results/mapping_stats.err" "${basedir}/results/mapping_stats.out"
 
-# Index the genomes
-echo "Indexing the genomes..."
-for sample in ${list1[@]};
-do
+# Index the reference genome (run this once)
+# echo "Indexing the reference genome..."
+# bwa index "${ref_genome}"
 
-echo Indexing "${sample}"/*_R1_val_1.fq.gz 
-    bwa index "${sample}"/*_R2_val_2.fq.gz
-done    
-# Map reads to indexed samples
-echo "Mapping reads to indexed samples..."
+# Map reads to genome
+echo "Mapping reads to genomes..."
 for sample in "${list1[@]}";
 do
+
     echo "Mapping '${sample}'..."
     sample_name=$(basename $sample)
+    raw reads
 
-    mkdir -p ${output}/${sample_name}
+    forward_read="${sample}"/*_R1_val_1.fq.gz # Path to the forward read file
+    reverse_read="${sample}"/*_R2_val_2.fq.gz # Path to the reverse read file
+
+    mkdir -p ${output_dir}/${sample_name}
    
     echo "Mapping reads to ${sample_name}"
-    bwa mem "${ref_genome}" -t "${threads}" "${sample}" "${forward_read}" "${reverse_read}" > "${results}/${sample_name}_mapped.sam"
+    bwa mem "${ref_genome}" -t "${threads}" "${sample}"/*_R1_val_1.fq.gz "${sample}"/*_R2_val_2.fq.gz > "${output_dir}/${sample_name}/${sample_name}_mapped.sam"
 
-    echo Converting to bam, sorting and extracting mapping stats....
 
-    samtools view -@ "${threads}" -bS "${results}/${sample_name}_mapped.sam" | samtools sort -o "${results}/${sample_name}_mapped.sorted.bam" -
-    samtools flagstat "${results}/${sample_name}_mapped.sorted.bam" > "${results}/${sample_name}_mapping_stats.txt"
-    samtools coverage "${results}/${sample_name}_mapped.sorted.bam" > "${results}/${sample_name}_coverage_stats.txt"
-    samtools depth "${results}/${sample_name}_mapped.sorted.bam" > "${results}/${sample_name}_depth_stats.txt"
+    echo Converting to bam, sorting and extracting mapping statistis....
+
+    samtools view -@ "${threads}" -bS "${output_dir}/${sample_name}/${sample_name}_mapped.sam" | samtools sort -o "${output_dir}/${sample_name}/${sample_name}_mapped.sorted.bam"
+    samtools flagstat "${output_dir}/${sample_name}/${sample_name}_mapped.sorted.bam" > "${output_dir}/${sample_name}/${sample_name}_mapping_stats.txt"
+    samtools coverage "${output_dir}/${sample_name}/${sample_name}_mapped.sorted.bam" > "${output_dir}/${sample_name}/${sample_name}_coverage_stats.txt"
+    samtools depth "${output_dir}/${sample_name}/${sample_name}_mapped.sorted.bam" > "${output_dir}/${sample_name}/${sample_name}_depth_stats.txt"
 
 done
 
