@@ -10,13 +10,6 @@ set -eu
 #PBS -e /mnt/lustre/users/pnjenga/trypanosome/fast.err
 #PBS -m abe
 #PBS -M puritynjenga895@gmail.com
-ulimit -s unlimited
-# cd /mnt/lustre/users/pnjenga/WRF_Tests/WRFV3/run2km_100
-# rm -f wrfout* rsl*
-# nproc=`cat $PBS_NODEFILE | wc -l`
-# echo nproc is $nproc
-# cat $PBS_NODEFILE
-# time mpirun -np $nproc wrf.exe > runWRF.out
 
 
 # module purge
